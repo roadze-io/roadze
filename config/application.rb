@@ -1,19 +1,23 @@
 require_relative 'boot'
-
 require 'rails/all'
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
 module RoadzeRails
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
+
     config.load_defaults 6.0
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    if Rails.env.development? 
+      config.action_mailer.delivery_method = :letter_opener
+      config.action_mailer.perform_deliveries = true
+      config.action_mailer.raise_delivery_errors = true
+      config.action_mailer.default_url_options = { host: 'lvh.me', port: 3000 }
+    elsif Rails.env.production?
+      config.action_mailer.delivery_method = :postmark
+      config.action_mailer.postmark_settings = { :api_token => Rails.application.credentials[Rails.env.to_sym][:postmark][:api_key] }
+      config.action_mailer.raise_delivery_errors = true
+      config.action_mailer.default_url_options = { host: 'roadze.io' }
+    end
   end
 end
