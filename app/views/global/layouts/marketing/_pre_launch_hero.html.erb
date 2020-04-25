@@ -45,15 +45,15 @@
           <% end %>
 
           <% if current_request?(controller: 'marketing', action: ['features']) %>
-            <%= link_to "Project Roadmap", features_url(anchor: "features"), class: "ml-10 font-bold text-blue-700 hover:text-blue-500 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out" %>
+            <%= link_to "Project Roadmap", features_url(anchor: "table"), class: "ml-10 font-bold text-blue-700 hover:text-blue-500 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out" %>
           <% else %>
-            <%= link_to "Project Roadmap", features_url(anchor: "features"), class: "ml-10 font-medium text-blue-500 hover:text-blue-700 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out" %>
+            <%= link_to "Project Roadmap", features_url(anchor: "table"), class: "ml-10 font-medium text-blue-500 hover:text-blue-700 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out" %>
           <% end %>
 
           <% if current_request?(controller: 'marketing', action: ['pricing']) %>
-            <%= link_to "Pricing", pricing_url, class: "ml-10 font-bold text-blue-700 hover:text-blue-500 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out" %>
+            <%= link_to "Pricing", pricing_url(anchor: 'table'), class: "ml-10 font-bold text-blue-700 hover:text-blue-500 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out" %>
           <% else %>
-            <%= link_to "Pricing", pricing_url, class: "ml-10 font-medium text-blue-500 hover:text-blue-700 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out" %>
+            <%= link_to "Pricing", pricing_url(anchor: 'table'), class: "ml-10 font-medium text-blue-500 hover:text-blue-700 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out" %>
           <% end %>
 
           <% if current_request?(controller: 'marketing', action: ['contact']) %>
@@ -124,9 +124,7 @@
         </p>
         <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
           <div class="rounded-md shadow">
-            <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
-              Start Trial
-            </a>
+            <%= link_to "Start Trial", pricing_url(anchor: 'table'), class: "w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10" %>
           </div>
           <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
             <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-blue-600 bg-white hover:text-blue-500 focus:outline-none focus:shadow-outline-blue transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
