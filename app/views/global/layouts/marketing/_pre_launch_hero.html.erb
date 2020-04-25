@@ -38,10 +38,29 @@
           </div>
         </div>
         <div class="hidden md:block">
-          <a href="#" class="font-medium text-blue-500 hover:text-blue-700 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out">Home</a>
-          <a href="#" class="ml-10 font-medium text-blue-500 hover:text-blue-700 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out">Features</a>
-          <a href="#" class="ml-10 font-medium text-blue-500 hover:text-blue-700 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out">Pricing</a>
-          <a href="#" class="ml-10 font-medium text-blue-500 hover:text-blue-700 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out">Contact Us</a>
+          <% if current_request?(controller: 'marketing', action: ['home']) %>
+            <%= link_to "Home", root_url, class: "font-bold text-blue-700 hover:text-blue-500 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out" %>
+          <% else %>
+            <%= link_to "Home", root_url, class: "font-medium text-blue-500 hover:text-blue-700 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out" %>
+          <% end %>
+
+          <% if current_request?(controller: 'marketing', action: ['features']) %>
+            <%= link_to "Project Roadmap", features_url, class: "ml-10 font-bold text-blue-700 hover:text-blue-500 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out" %>
+          <% else %>
+            <%= link_to "Project Roadmap", features_url, class: "ml-10 font-medium text-blue-500 hover:text-blue-700 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out" %>
+          <% end %>
+
+          <% if current_request?(controller: 'marketing', action: ['pricing']) %>
+            <%= link_to "Pricing", pricing_url, class: "ml-10 font-bold text-blue-700 hover:text-blue-500 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out" %>
+          <% else %>
+            <%= link_to "Pricing", pricing_url, class: "ml-10 font-medium text-blue-500 hover:text-blue-700 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out" %>
+          <% end %>
+
+          <% if current_request?(controller: 'marketing', action: ['contact']) %>
+            <%= link_to "Contact us", contact_url, class: "ml-10 font-bold text-blue-700 hover:text-blue-500 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out" %>
+          <% else %>
+            <%= link_to "Contact us", contact_url, class: "ml-10 font-medium text-blue-500 hover:text-blue-700 focus:outline-none focus:text-blue-700 transition duration-150 ease-in-out" %>
+          <% end %>
         </div>
         <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
           <span class="inline-flex rounded-md shadow">
