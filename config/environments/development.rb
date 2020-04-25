@@ -1,4 +1,8 @@
 Rails.application.configure do
+  config.hosts << "lvh.me"
+  config.hosts << "app.lvh.me"
+  config.hosts << "admin.lvh.me"
+  config.hosts << "api.lvh.me"
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
