@@ -5,3 +5,7 @@ require("channels")
 
 require("jquery")
 require("alpinejs")
+
+require("stylesheets/application.scss")
+require("typeface-inter")
+require("frontend1-typeface-open-sans")
