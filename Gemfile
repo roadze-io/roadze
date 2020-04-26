@@ -45,7 +45,6 @@ gem 'activerecord-multi-tenant'
 gem 'activerecord-typedstore'
 gem 'inline_svg'
 gem 'slack-notifier'
-gem 'aws-sdk-s3'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

@@ -73,7 +73,7 @@
                     </ul>
                     <div class="mt-8">
                       <div class="rounded-lg shadow-md">
-                        <%# link_to "Start your trial", 'new_account_url'(subdomain: 'app', account_type: 'owner_operator') , class: "block w-full text-center rounded-lg border border-transparent bg-white px-6 py-3 text-base leading-6 font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:shadow-outline transition ease-in-out duration-150", data: { gumroad: { single: { product: true } } } %>
+                        <%= link_to "Start 30 day trial", new_frontend_account_url(subdomain: 'app', account_type: 'owner_operator', anchor: 'form') , class: "block w-full text-center rounded-lg border border-transparent bg-white px-6 py-3 text-base leading-6 font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:shadow-outline transition ease-in-out duration-150", data: { gumroad: { single: { product: true } } } %>
                       </div>
                     </div>
                   </div>
@@ -165,7 +165,7 @@
                   </ul>
                   <div class="mt-10">
                     <div class="rounded-lg shadow-md">
-                      <%# link_to "Start your trial", new_account_url(subdomain: 'app', account_type: 'carrier') , class: "block w-full text-center rounded-lg border border-transparent bg-blue-600 px-6 py-4 text-xl leading-6 font-medium text-white hover:bg-blue-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150", data: { gumroad: { single: { product: true } } } %>
+                      <%= link_to "Start your trial", new_frontend_account_url(subdomain: 'app', account_type: 'carrier', anchor: 'form') , class: "block w-full text-center rounded-lg border border-transparent bg-blue-600 px-6 py-4 text-xl leading-6 font-medium text-white hover:bg-blue-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150", data: { gumroad: { single: { product: true } } } %>
                     </div>
                   </div>
                 </div>
@@ -229,7 +229,7 @@
                     </ul>
                     <div class="mt-8">
                       <div class="rounded-lg shadow-md">
-                        <%# link_to "Start your trial", new_account_url(subdomain: 'app', account_type: 'broker_shipper') , class: "block w-full text-center rounded-lg border border-transparent bg-white px-6 py-3 text-base leading-6 font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:shadow-outline transition ease-in-out duration-150", data: { gumroad: { single: { product: true } } } %>
+                        <%= link_to "Start your trial", new_frontend_account_url(subdomain: 'app', account_type: 'broker_shipper', anchor: 'form') , class: "block w-full text-center rounded-lg border border-transparent bg-white px-6 py-3 text-base leading-6 font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:shadow-outline transition ease-in-out duration-150", data: { gumroad: { single: { product: true } } } %>
                       </div>
                     </div>
                   </div>

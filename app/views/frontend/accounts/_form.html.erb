@@ -1,0 +1,28 @@
+<%= form_for(@account, url: frontend_accounts_url, method: :POST, html: { id: 'form' }) do |f| %>
+  <%= f.hidden_field :account_type, value: params[:account_type] %>
+  <div class="w-full mb-2">
+    <%= f.label :company_name, "Company Name", class: "block text-sm leading-5 font-medium text-gray-700" %>
+    <%= f.text_field :company_name, class: "form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5", required: true %>
+  </div>
+  <%= f.fields_for :owner do |o| %>
+    <div class="w-full mb-2">
+      <%= o.label :username, class: "block text-sm leading-5 font-medium text-gray-700" %>
+      <%= o.text_field :username, class: "form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5", required: true %>
+    </div>
+    <div class="w-full mb-2">
+      <%= o.label :email, "Email Address", class: "block text-sm leading-5 font-medium text-gray-700" %>
+      <%= o.email_field :email, class: "form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5", required: true %>
+    </div>
+    <div class="w-full mb-2">
+      <%= o.label :password, "Password", class: "block text-sm leading-5 font-medium text-gray-700" %>
+      <%= o.password_field :password, class: "form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5", required: true%>    
+    </div>
+    <div class="w-full mb-2">
+      <%= o.label :password_confirmation, "Confirm Password", class: "block text-sm leading-5 font-medium text-gray-700" %>
+      <%= o.password_field :password_confirmation, class: "form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5", required: true%>    
+    </div>
+    <div class="w-full mb-2">
+      <%= f.submit "Start Trial", class: "w-full p-2 bg-blue-600 hover:bg-blue-500 shadow-lg rounded-lg text-white logo-font mt-4" %>
+    </div>
+  <% end %>
+<% end %>
