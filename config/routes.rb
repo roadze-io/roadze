@@ -43,7 +43,7 @@ Rails.application.routes.draw do
                }
     devise_scope :user do
       authenticated :user do
-
+        root to: 'frontend/user_dashboard#index', as: :authenticated_user
       end
       unauthenticated do
         root to: 'users/sessions#new', as: :unauthenticated_user
@@ -72,6 +72,7 @@ Rails.application.routes.draw do
                         }
     devise_scope :admin do
       authenticated :admin do
+        root to: 'backend/admin_dashboard#index', as: :authenticated_admin
       end
       unauthenticated do
         root to: 'admins/sessions#new', as: :unauthenticated_admin

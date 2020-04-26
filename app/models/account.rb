@@ -30,11 +30,11 @@ class Account < ApplicationRecord
 
   has_many :users
 
-  before_validation :set_trial, :set_verification_status
+  before_validation :set_trial, :set_verification_status, :downcase_company_name
 
   validates_presence_of :company_name
 
-  validates :account_type, inclusion: { in: %w[owner_operator broker_shipper carrier borker_only], message: "%{value} is not a valid account type" }
+  validates :account_type, inclusion: { in: %w[owner_operator broker_shipper carrier broker_only], message: "%{value} is not a valid account type" }
 
   private
 
@@ -47,5 +47,9 @@ class Account < ApplicationRecord
   def set_verification_status
     self.verification_status = 0
     self.is_verified = false
+  end
+
+  def downcase_company_name
+    self.company_name = company_name.try(:downcase)
   end
 end

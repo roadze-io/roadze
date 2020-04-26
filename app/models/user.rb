@@ -21,6 +21,7 @@
 #  reset_password_token   :string
 #  role                   :integer
 #  sign_in_count          :integer          default(0), not null
+#  slug                   :string
 #  unconfirmed_email      :string
 #  username               :string
 #  created_at             :datetime         not null
@@ -32,6 +33,7 @@
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_users_on_email                 (email)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_slug                  (slug) UNIQUE
 #  index_users_on_username              (username) UNIQUE
 #
 class User < ApplicationRecord
@@ -45,7 +47,7 @@ class User < ApplicationRecord
   multi_tenant :account
   belongs_to :account
 
-  before_validation :set_account_owner
+  before_validation :set_account_owner, :down_case_username
 
   validates_presence_of :username
 
@@ -63,5 +65,10 @@ class User < ApplicationRecord
 
     self.role ||= 0
     self.is_owner = true
+    self.profile_complete = false
+  end
+
+  def down_case_username
+    self.username = username.try(:downcase)
   end
 end

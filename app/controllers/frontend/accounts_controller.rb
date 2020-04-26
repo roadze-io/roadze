@@ -17,7 +17,7 @@ class Frontend::AccountsController < ApplicationController
     respond_to do |format|
       if @account.save
         @account.update(owner_id: @account.owner.id)
-        format.html { redirect_to unauthenticated_user_url, flash: { success: "#{@account.company_name.titleize} has been created. Please check your email for instructions." }}
+        format.html { redirect_to unauthenticated_user_url, flash: { notice: "#{@account.company_name.titleize} has been created. Please check your email for instructions." }}
       else
         format.html { redirect_to pricing_url(subdomain: '', alert: 'Something went wrong while setting up your account. Please try again.') }
       end

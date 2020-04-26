@@ -357,9 +357,7 @@
             </p>
             <div class="mt-6">
               <div class="rounded-md shadow">
-                <a href="#" class="flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-800 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue transition duration-150 ease-in-out">
-                  Get Started
-                </a>
+                <%= link_to "Get Started", new_frontend_account_url(subdomain: 'app', account_type: 'broker_only', anchor: 'form') , class: "flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-800 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue transition duration-150 ease-in-out", data: { gumroad: { single: { product: true } } } %>
               </div>
             </div>
             <div class="mt-4 text-sm leading-5">
