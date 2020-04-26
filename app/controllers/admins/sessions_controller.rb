@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Admins::SessionsController < Devise::SessionsController
+  skip_before_action :track_ahoy_visit
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Admins::UnlocksController < Devise::UnlocksController
+  skip_before_action :track_ahoy_visit
   # GET /resource/unlock/new
   # def new
   #   super

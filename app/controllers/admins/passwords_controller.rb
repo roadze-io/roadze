@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Admins::PasswordsController < Devise::PasswordsController
+  skip_before_action :track_ahoy_visit
   # GET /resource/password/new
   # def new
   #   super

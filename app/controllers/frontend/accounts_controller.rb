@@ -1,12 +1,19 @@
 class Frontend::AccountsController < ApplicationController
+  skip_before_action :track_ahoy_visit, except: [:new, :create]
+  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
   before_action :set_account, only: [:show, :edit, :update, :destroy]
 
   def show
   end
 
   def new
+    ahoy.track "Viewed the product", title: @page_title
     @account = Account.new
     @account.build_owner
+
+    @page_title       = 'Start Trial Form'
+    @page_description = 'roadze.io account registration page'
+    @page_keywords    = 'Roadze, Site, Registration, Loadboard, Canada loadboard, Logistics, Trucking'
   end
 
   def edit
@@ -16,6 +23,7 @@ class Frontend::AccountsController < ApplicationController
     @account = Account.new(account_params)
     respond_to do |format|
       if @account.save
+        ahoy.track "Account Created", title: "#{@account.company_name.titleze} / #{@account.owner.username.upcase}"
         @account.update(owner_id: @account.owner.id)
         format.html { redirect_to unauthenticated_user_url, flash: { notice: "#{@account.company_name.titleize} has been created. Please check your email for instructions." }}
       else

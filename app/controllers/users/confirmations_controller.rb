@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::ConfirmationsController < Devise::ConfirmationsController
+  skip_before_action :track_ahoy_visit
   # GET /resource/confirmation/new
   # def new
   #   super

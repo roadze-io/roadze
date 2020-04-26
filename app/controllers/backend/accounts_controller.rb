@@ -1,4 +1,5 @@
 class Backend::AccountsController < ApplicationController
+  skip_before_action :track_ahoy_visit
   before_action :set_account, only: [:show, :edit, :update, :destroy]
 
   def index
