@@ -28,8 +28,27 @@ Rails.application.routes.draw do
     match '/422', to: 'errors#unacceptable', via: :all
     match '/500', to: 'errors#internal_server_error', via: :all
   end
+
   # app.roadze.io || app.roadze.com
   constraints(Subscription) do
+    devise_for :users, path: '',
+                       path_names: {
+                         sign_in: 'login',
+                         sign_out: 'logout'
+                       },
+                controllers: {
+                confirmations: 'users/confirmations',
+                passwords: 'users/confirmations',
+                sessions: 'users/sessions'
+               }
+    devise_scope :user do
+      authenticated :user do
+
+      end
+      unauthenticated do
+        root to: 'users/sessions#new', as: :unauthenticated_user
+      end
+    end
     namespace :frontend, path: '' do
       match '/404', to: 'errors#not_found', via: :all
       match '/422', to: 'errors#unacceptable', via: :all
@@ -38,8 +57,26 @@ Rails.application.routes.draw do
       resource :account, controller: 'account', except: [:index]
     end
   end
+
   # admin.roadze.io || admin.roadze.com
   constraints(Support) do
+    devise_for :admins, path: '',
+                        path_names: {
+                          sign_in: 'login',
+                          sign_out: 'logout'
+                        },
+                        controllers: {
+                          confirmations: 'admins/confirmations',
+                          passwords: 'admins/passwords',
+                          sessions: 'admins/sessions'
+                        }
+    devise_scope :admin do
+      authenticated :admin do
+      end
+      unauthenticated do
+        root to: 'admins/sessions#new', as: :unauthenticated_admin
+      end
+    end
     namespace :backend, path: '' do
       match '/404', to: 'errors#not_found', via: :all
       match '/422', to: 'errors#unacceptable', via: :all
