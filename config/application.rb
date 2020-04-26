@@ -8,6 +8,8 @@ module RoadzeRails
 
     config.load_defaults 6.0
 
+    config.exceptions_app = self.routes
+
     if Rails.env.development? 
       config.action_mailer.delivery_method = :letter_opener
       config.action_mailer.perform_deliveries = true
