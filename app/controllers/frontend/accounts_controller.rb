@@ -23,7 +23,7 @@ class Frontend::AccountsController < ApplicationController
     @account = Account.new(account_params)
     respond_to do |format|
       if @account.save
-        ahoy.track "Account Created", title: "#{@account.company_name.titleze} / #{@account.owner.username.upcase}"
+        ahoy.track "Account Created", title: "#{@account.company_name.titleize} / #{@account.owner.username.upcase}"
         @account.update(owner_id: @account.owner.id)
         format.html { redirect_to unauthenticated_user_url, flash: { notice: "#{@account.company_name.titleize} has been created. Please check your email for instructions." }}
       else

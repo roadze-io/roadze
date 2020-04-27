@@ -43,15 +43,18 @@ Rails.application.routes.draw do
                }
 
     devise_scope :user do 
-      root to: 'users/sessions#new', as: :user_root
+      authenticated :user do
+        root to: 'frontend/user_dashboard#index', as: :authenticated_user
+      end
+      unauthenticated do
+        root to: 'users/sessions#new', as: :unauthenticated_user
+      end
     end
 
     namespace :frontend, path: '' do
       match '/404', to: 'errors#not_found', via: :all
       match '/422', to: 'errors#unacceptable', via: :all
       match '/500', to: 'errors#internal_server_error', via: :all
-
-      get '/dashboard', to: 'user_dashboard#index'
 
       resources :accounts, controller: 'accounts', except: [:index]
     end

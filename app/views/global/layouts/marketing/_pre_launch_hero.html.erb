@@ -64,7 +64,7 @@
         </div>
         <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
           <span class="inline-flex rounded-md shadow">
-            <%= link_to "Login", user_root_url(subdomain: 'app'), class: "inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-blue-500 bg-white hover:text-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-gray-50 active:text-indigo-700 transition duration-150 ease-in-out" %>
+            <%= link_to "Login", unauthenticated_user_url(subdomain: 'app'), class: "inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-blue-500 bg-white hover:text-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-gray-50 active:text-indigo-700 transition duration-150 ease-in-out" %>
           </span>
         </div>
       </nav>
@@ -121,7 +121,7 @@
             <% end %>
           </div>
           <div>
-            <%= link_to "Login", user_root_url(subdomain: 'app'), class: "block w-full px-5 py-3 text-center font-medium text-blue-600 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 focus:outline-none focus:bg-blue-100 focus:text-blue-700 transition duration-150 ease-in-out" %>
+            <%= link_to "Login", unauthenticated_user_url(subdomain: 'app'), class: "block w-full px-5 py-3 text-center font-medium text-blue-600 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 focus:outline-none focus:bg-blue-100 focus:text-blue-700 transition duration-150 ease-in-out" %>
           </div>
         </div>
       </div>

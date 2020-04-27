@@ -18,8 +18,4 @@ class ApplicationController < ActionController::Base
     set_current_tenant(account)
   end
 
-  def after_sign_in_path_for(_user)
-    frontend_dashboard_url(subdomain: 'app')
-  end
-
 end
