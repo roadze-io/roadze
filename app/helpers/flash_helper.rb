@@ -3,9 +3,9 @@ module FlashHelper
   def flash_class(level)
     case level
       when 'notice' then content_tag(:span, 'Notice:', class: 'text-blue-700 header-font tracking-tight font-semibold')
-      when 'success' then content_tag(:span, 'Success:', class: 'text-green-700 header-font tracking-tight font-semibold')
-      when 'error' then content_tag(:span, 'Error:', class: 'text-orange-700 header-font tracking-tight font-semibold')
-      when 'alert' then content_tag(:span, 'Alert:', class: 'text-red-700 header-font tracking-tight font-semibold')
+      when 'success' then content_tag(:span, 'Great:', class: 'text-green-700 header-font tracking-tight font-semibold')
+      when 'error' then content_tag(:span, 'Uh-oh:', class: 'text-orange-700 header-font tracking-tight font-semibold')
+      when 'alert' then content_tag(:span, 'Oops:', class: 'text-red-700 header-font tracking-tight font-semibold')
     end
   end
 
